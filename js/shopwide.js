@@ -65,7 +65,7 @@ function Draw(prod,count){
                 <span class="text-decoration-line-through old-price">${oldPrice}</span>
                 <span class="new-price">${"$" + prod.price.newprice}</span>
                 <div class="addToCard">
-                <a class="addBasket" href="">Add to cart</a>
+                <a class="addBasket" onclick=addCard(event) data-id="${prod.id}" href="">Add to cart</a>
                 </div>
             </div>
             </div>
@@ -75,3 +75,45 @@ function Draw(prod,count){
 }
 main(15,'#shopwideProdutcs')
 main(4,"#recentlyProducts")
+function addCard(event){
+    event.preventDefault();
+    let id=event.target.getAttribute("data-id");
+    GetProductByID(id);
+}
+function GetProductByID(id) {
+    return fetch('data/products.json')
+         .then(response => { return response.json() })
+         .then(data => {
+                data.products.forEach(prod=>{
+                    if(prod.id==id){
+                     let basket = JSON.parse(localStorage.getItem('basket'));
+                     let data_id = prod.id;
+                     let prod_name = prod.name;
+                     let prod_price = prod.price.newprice;
+                     let prod_img = prod.picture.indexpage;
+                     let existProd = basket.find(p => p.Id == data_id);
+                     if(existProd == undefined) {
+                         basket.push({
+                           Id: data_id,
+                           Name: prod_name,
+                           Price: prod_price,
+                           Src: prod_img,
+                           Count: 1
+                         })
+                       }
+                       else{
+                         existProd.Count += 1;
+                       }
+                 
+                       localStorage.setItem('basket',JSON.stringify(basket));
+                    }
+                })
+                CountBasket();
+     } ) 
+ }
+function CountBasket(){
+    let basket = JSON.parse(localStorage.getItem('basket'));
+    let count = basket.length;
+    document.getElementById('counterStrike').innerHTML = count
+}
+CountBasket();

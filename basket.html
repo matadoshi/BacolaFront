@@ -278,7 +278,7 @@
                     <h2>YOUR CART IS CURRENTLY EMPTY.</h2>
                     <a href="index.html">Return to shop</a>
                 </div>
-                <div class="basketFull">
+                <div class="basketFull col-lg-12 d-flex">
                     <div class="left col-lg-9">
                         <div class="head d-flex text-center">
                             <div class="col-lg-6">Product</div>
@@ -288,6 +288,35 @@
                         </div>
                         <div id="productsBasket" class="row align-items-center">
                         
+                        </div>
+                    </div>
+                    <div class="right col-lg-3">
+                        <h3>Card Totals</h3>
+                        <div class="d-flex justify-content-between subtotal">
+                            <p>Subtotal</p>
+                            <p id="subtotal"></p>
+                        </div>
+                        <div class="shipping text-end">
+                            <div>
+                                <label for="flat" >Flat Rate : <span>$5.00</span></label>
+                                <input id="flat" type="radio" name="delivery">
+                            </div>
+                            <div>
+                                <label for="free">Free Shipping</label>
+                                <input id="free" type="radio" name="delivery">
+                            </div>
+                            <div>
+                                <label for="local">Local pickup</label>
+                                <input id="local" type="radio" name="delivery">
+                            </div>
+                            <div>
+                                <p>Shipping to AL.</p>
+                                <a href="">Change Adress</a>
+                            </div>
+                        </div>
+                        <div class="total d-flex">
+                            <p>Total</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>

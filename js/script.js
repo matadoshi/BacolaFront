@@ -86,8 +86,8 @@ function CountBasket(){
     let basket = JSON.parse(localStorage.getItem('basket'));
     let count = basket.length;
     document.getElementById('counterStrike').innerHTML = count
-  }
-  CountBasket();
+}
+CountBasket();
 async function main(count,id) {
     products = await GetProduct(count);
     let x=``;
@@ -95,7 +95,7 @@ async function main(count,id) {
        x+=Draw(prod,count);
     })
     document.querySelector(id).innerHTML = x;
-    // делай что хотел
+
 }
 function Draw(prod,count){
     let x=``;
@@ -172,13 +172,11 @@ var x = setInterval(function () {
         document.getElementById("timedown").innerHTML = "EXPIRED";
     }
 }, 1000);
-
 function addCard(event){
     event.preventDefault();
     let id=event.target.getAttribute("data-id");
     GetProductByID(id);
 }
-
 $(".homebtn").hover(function(e){
     e.preventDefault();
     $(".dropdownhome").toggleClass("active")    

@@ -12,7 +12,6 @@ function GetProduct(prodCount) {
              return prodArray;
     });
 }
-
 async function main(count,id) {
     products = await GetProduct(count);
     let x=``;
@@ -20,9 +19,7 @@ async function main(count,id) {
        x+=DrawProduct(prod,count);
     })
     document.querySelector(id).innerHTML = x;
-    // делай что хотел
 }
-
 function DrawProduct(prod,count){
     let x=``;
     let oldPrice='';
@@ -83,7 +80,7 @@ function DrawProduct(prod,count){
                                 <div class="countProd d-flex mb-4">
                                     <div class="col-lg-6"></div>
                                     <div class="addToCard active">
-                                        <a data-id="${prod.id}" onclick="addCard(event); class="addBasket" href="">Add to card</a>
+                                    <a class="addBasket" data-id="${prod.id}" onclick="addCard(event);" href="">Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="wc d-flex">
@@ -139,7 +136,6 @@ function DrawProduct(prod,count){
         return x;
 }
 main(1,"#prodFull")
-
 let buttons=document.querySelectorAll('.prod-fulldesc .top button');
 let divs=document.querySelectorAll('.prod-fulldesc .aa');
 let startPoint = 0;
@@ -163,3 +159,45 @@ for(let button of buttons){
         }
     })
 }
+function addCard(event){
+    event.preventDefault();
+    let id=event.target.getAttribute("data-id");
+    GetProductByID(id);
+}
+function GetProductByID(id) {
+    return fetch('data/products.json')
+         .then(response => { return response.json() })
+         .then(data => {
+                data.products.forEach(prod=>{
+                    if(prod.id==id){
+                     let basket = JSON.parse(localStorage.getItem('basket'));
+                     let data_id = prod.id;
+                     let prod_name = prod.name;
+                     let prod_price = prod.price.newprice;
+                     let prod_img = prod.picture.indexpage;
+                     let existProd = basket.find(p => p.Id == data_id);
+                     if(existProd == undefined) {
+                         basket.push({
+                           Id: data_id,
+                           Name: prod_name,
+                           Price: prod_price,
+                           Src: prod_img,
+                           Count: 1
+                         })
+                       }
+                       else{
+                         existProd.Count += 1;
+                       }
+                 
+                       localStorage.setItem('basket',JSON.stringify(basket));
+                    }
+                })
+                CountBasket();
+     } ) 
+ }
+function CountBasket(){
+    let basket = JSON.parse(localStorage.getItem('basket'));
+    let count = basket.length;
+    document.getElementById('counterStrike').innerHTML = count
+}
+CountBasket();
