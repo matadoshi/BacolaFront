@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Inter&family=Jost:wght@300&family=Lora&family=Nothing+You+Could+Do&family=Playfair+Display&family=Playfair+Display+SC&family=Trirong:wght@500&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>Contact</title>
 </head>
 <body>
     <header>
@@ -70,31 +74,30 @@
             <div class="container d-flex align-items-center justify-content-between">
                 <div class="home left col-lg-2">
                     <a class="img" href="index.html"><img
-                            src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo.png" alt=""></a>
+                        src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo.png" alt=""></a>
                     <p>Online Grocery Shopping Center</p>
                 </div>
                 <div class="middle col-lg-8 d-flex justify-content-evenly">
-                    <div class="col-lg-3">
-                        <a href="#">
+                    <div class="locationbar col-lg-3">
                             <span>Your Location</span>
                             <div class="location">
                                 Select a Location
                                 <i class="fa-solid fa-angle-down"></i>
                             </div>
-                        </a>
                     </div>
-                    <div class="col-lg-8 input align-item-center">
+                    
+                    <div class="searchbar col-lg-8 input align-item-center">
                         <input class="col-lg-12" type="text" placeholder="Search for products"><i class="fa-solid fa-xmark"></i><i
                             class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </div>
                 <div class="right col-lg-2 d-flex align-items-center text-center">
-                    <a onclick="location.href='register.html'" class="account ms-3 me-3" href=""><i class="fa-solid fa-user"></i></a>
+                    <a class="account ms-3 me-3" href="register.html"><i class="fa-solid fa-user"></i></a>
                     <div onclick="location.href = 'basket.html';" class="shop">
                         <span class="me-3">$0.00</span>
-                        <i class="fa-solid fa-basket-shopping"></i>
-                        <div class="shop-view">
-                           <div class="null">
+                        <i class="fa-solid fa-basket-shopping"></i><span id="counterStrike"></span>
+                        <div class="shop-view d-none">
+                           <div class="null d-none">
                             <div class="gray">
                             </div>
                             <div class="empty">
@@ -106,89 +109,158 @@
                                     <path class="c-05" d="M65.632 105.01c-5.251 0-8.751 3.5-8.751 8.751s3.5 8.751 8.751 8.751 8.751-3.5 8.751-8.751c0-5.25-3.5-8.751-8.751-8.751zm148.764 0c-5.251 0-8.751 3.5-8.751 8.751s3.5 8.751 8.751 8.751 8.751-3.5 8.751-8.751c.001-5.25-3.501-8.751-8.751-8.751z" fill="#cf984a"></path>
                                     <path class="c-06" d="M65.632 121.637c5.251 0 6.126 6.126 6.126 6.126 0 39.379 29.753 70.882 68.257 70.882s68.257-31.503 68.257-70.882c0 0 .875-6.126 6.126-6.126s6.126 6.126 6.126 6.126c0 46.38-35.003 83.133-80.508 83.133s-80.508-37.629-80.508-83.133c-.001-.001.874-6.126 6.124-6.126z" fill="#cf984a"></path>
                                     <path class="c-07" d="M65.632 112.886c5.251 0 6.126 6.126 6.126 6.126 0 39.379 29.753 70.882 68.257 70.882s68.257-31.503 68.257-70.882c0 0 .875-6.126 6.126-6.126s6.126 6.126 6.126 6.126c0 46.38-35.003 83.133-80.508 83.133s-80.508-37.629-80.508-83.133c-.001 0 .874-6.126 6.124-6.126z" fill="#fdfbf7"></path></svg>
-                            </div>
+                                </div>
+                                <div class="empty-text">No products in the cart.</div>
                            </div>
+                           <div class="noticify">We reduce shipping prices to only 2.49 €!</div>
                         </div>
                     </div>
                 </div>
+                 
             </div>
+           
         </section>
         <section id="h-bottom">
             <div class="container">
                 <div class="row justify-content-between align-items-center">
                     <div class="left col-lg-2 d-flex justify-content-between align-items-center">
-                        <i class="fa-solid fa-bars"></i><span>ALL CATEGORIES</span><i
-                            class="fa-solid fa-angle-down"></i>
+                        <i class="fa-solid fa-bars"></i><span>ALL CATEGORIES</span><i class="fa-solid fa-angle-down"></i>
+                        <div class="clickdown">
+                            <ul class="p-0">
+                                <li class="fruitshover">
+                                    <a href="">Fruits & Vegetables<i class="fa-solid fa-angle-right"></i></a>
+                                    <ul class="fruitsdropdown p-0">
+                                        <li>
+                                            <a href="">Cuts & Sprouts</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Exotic Fruits & Veggies</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Fresh Fruits</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Fresh Vegetables</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Herbs & Seasonings</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Packaged Produce</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Party Trays</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Meats & Seafood</a>
+                                </li>
+                                <li>
+                                    <a href="">Breakfast & Dairy</a>
+                                </li>
+                                <li class="beveragehover">
+                                    <a href="">Beverages<i class="fa-solid fa-angle-right"></i></a>
+                                    <ul class="beveragedropdown p-0">
+                                        <li><a href="">Coffee</a></li>
+                                        <li><a href="">Craft Beer</a></li>
+                                        <li><a href="">Drink Boxes & Pouches</a></li>
+                                        <li><a href="">Milk & Plant-Based Milk</a></li>
+                                        <li><a href="">Soda & Pop</a></li>
+                                        <li><a href="">Sparkling Water</a></li>
+                                        <li><a href="">Tea & Kombucha</a></li>
+                                        <li><a href="">Water</a></li>
+                                        <li><a href="">Wine</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">Breads & Bakery</a>
+                                </li>
+                                <li>
+                                    <a href="">Frozen Foods</a>
+                                </li>
+                                <li><a href="">Biscuits & Snacks</a></li>
+                                <li><a href="">Grocery & Staples</a></li>
+                                <hr style="color: black;">
+                                <li><a href="">Value of the Day</a></li>
+                                <li><a href="">Top 100 Offers</a></li>
+                                <li><a href="">New Arrivals</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="right col-lg-8 ">
                         <ul class="d-flex justify-content-between align-items-center">
-                            <li class="home"><a href="#" class="me-2 ">HOME</a><i class="fa-solid fa-angle-down"></i></li>
-                            <li><a href="#" class="me-2">SHOP</a><i class="fa-solid fa-angle-down"></i></li>
+                            <li class="homebtn"><a href="index.html" class="me-2 ">HOME</a><i class="fa-solid fa-angle-down"></i>
+                                <ul class="dropdownhome">
+                                    <li><a href="">Home 1</a></li>
+                                    <li><a href="">Home 2</a></li>
+                                    <li><a href="">Home 3</a></li>
+                                    <li><a href="">Home 4</a></li>
+                                    <li><a href="">Home 5</a></li>
+                                </ul>
+                            </li>
+                            <li class="shopbtn"><a href="#" class="me-2">SHOP</a><i class="fa-solid fa-angle-down"></i>
+                                <div class="dropdownshop">
+                                    <div class="d-flex  justify-content-between align-items-center">
+                                      <ul class="col-lg-24"><span>Shop List</span>
+                                          <li><a href="">Shop Default</a></li>
+                                          <li><a href="">Shop Right Sidebar</a></li>
+                                          <li><a href="shopwide.html">Shop Wide</a></li>
+                                          <li><a href="">List Left Sidebar</a></li>
+                                          <li><a href="">Shop Default</a></li>
+                                          <li><a href="">Shop Default</a></li>
+                                      </ul>
+                                      <ul class="col-lg-24"><span>Product Detail</span>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                      </ul>
+                                      <ul class="col-lg-24"><span>Product Types</span>
+                                          <li><a href="">Single Type 1</a></li>
+                                          <li><a href="">Single Type 2</a></li>
+                                          <li><a href="">Single Type 3</a></li>
+                                          <li><a href="">Single Type 4</a></li>
+                                          <li><a href="">Thumbnail Left</a></li>
+                                          <li><a href="">Zoom Image 1</a></li>
+                                      </ul>
+                                      <ul class="col-lg-24"><span>Product Types</span>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                      </ul>
+                                      <ul class="col-lg-24"><span>Product Types</span>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                          <li><a href="">Product Default</a></li>
+                                      </ul>
+                                    </div>
+                              </div>
+                            </li>
                             <li><a href="#">MEATS & SEAFOOD</a></li>
                             <li><a href="#">BAKERY</a></li>
-                            <li><a href="#">BAVERAGES</a></li>
-                            <li><a href="#">BLOG</a></li>
-                            <li onclick="location.href = 'contact.html';"><a class="contact" href="#">CONTACT</a></li>
+                            <li><a href="product.html">BAVERAGES</a></li>
+                            <li><a href="shopwide.html">BLOG</a></li>
+                            <li><a class="contact" href="contact.html">CONTACT</a></li>
                         </ul>
                     </div>
-                    <ul class="dropdownhome">
-                        <li><a href="">Home 1</a></li>
-                        <li><a href="">Home 2</a></li>
-                        <li><a href="">Home 3</a></li>
-                        <li><a href="">Home 4</a></li>
-                        <li><a href="">Home 5</a></li>
-                    </ul>
-                    <div class="dropdownshop">
-                          <div class="d-flex  justify-content-between align-items-center">
-                            <ul class="col-lg-2-5"><span>Shop List</span>
-                                <li><a href="">Shop Default</a></li>
-                                <li><a href="">Shop Right Sidebar</a></li>
-                                <li><a href="shopwide.html">Shop Wide</a></li>
-                                <li><a href="">List Left Sidebar</a></li>
-                                <li><a href="">Shop Default</a></li>
-                                <li><a href="">Shop Default</a></li>
-                            </ul>
-                            <ul class="col-lg-2-5"><span>Product Detail</span>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                            </ul>
-                            <ul class="col-lg-2-5"><span>Product Types</span>
-                                <li><a href="">Single Type 1</a></li>
-                                <li><a href="">Single Type 2</a></li>
-                                <li><a href="">Single Type 3</a></li>
-                                <li><a href="">Single Type 4</a></li>
-                                <li><a href="">Thumbnail Left</a></li>
-                                <li><a href="">Zoom Image 1</a></li>
-                            </ul>
-                            <ul class="col-lg-2-5"><span>Product Types</span>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                            </ul>
-                            <ul class="col-lg-2-5"><span>Product Types</span>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                                <li><a href="">Product Default</a></li>
-                            </ul>
-                          </div>
-                    </div>
+                    
+                    
                 </div>
             </div>
         </section>
     </header>
     <div class="container">
         <div class="location">
-            <a href="">HOME</a><i class="ms-2 me-2 fa-solid fa-angle-right"></i><span>CONTACT</span>
+            <a onclick="location.href='index.html';" href="#">HOME</a><i class="ms-2 me-2 fa-solid fa-angle-right"></i><span>CONTACT</span>
         </div>
     </div>
     <section id="contact">
@@ -245,7 +317,7 @@
                 </div>
         </div>
     </section>
-    <section id="subscribe">
+    <section data-aos="fade-up" id="subscribe">
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-12 col-lg-5">
@@ -273,7 +345,7 @@
 
         </div>
     </section>
-    <footer>
+    <footer data-aos="fade-up">
         <div class="container">
             <div class="row">
                 <div class="top row justify-content-between align-items-center text-center">
@@ -293,7 +365,7 @@
                 <div class="middle">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-2-5">
+                            <div class="col-lg-24">
                                 <h4>FRUIT & VEGETABLES</h4>
                                 <ul>
                                     <li><a href="">Fresh Vegetables</a></li>
@@ -305,7 +377,7 @@
                                     <li><a href="">Party Trays</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-2-5">
+                            <div class="col-lg-24">
                                 <h4>BREAKFAST & DAIRY</h4>
                                 <ul>
                                     <li><a href="">Milk & Flavoured Milk</a></li>
@@ -318,7 +390,7 @@
                                     <li><a href="">Yogurt</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-2-5">
+                            <div class="col-lg-24">
                                 <h4>MEAT & SEAFOOD</h4>
                                 <ul>
                                     <li><a href="">Breakfast Sausage</a></li>
@@ -332,7 +404,7 @@
                                     <li><a href="">Farm Raised Fillets</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-2-5">
+                            <div class="col-lg-24">
                                 <h4>BEVERAGES</h4>
                                 <ul>
                                     <li><a href="">Water</a></li>
@@ -346,7 +418,7 @@
                                     <li><a href="">Wine</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-2-5">
+                            <div class="col-lg-24">
                                 <h4>BREADS & BAKERY</h4>
                                 <ul>
                                     <li><a href="">Milk & Flavoured Milk</a></li>
@@ -365,11 +437,11 @@
             </div>
         </div>
     </footer>
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="top row justify-content-between align-items-center">
-                    <div class="left col-12 col-lg-4 d-flex">
+    <section data-aos="fade-up" id="footer">
+        <div class="container-fluid">
+            <div class="row container-fluid">
+                <div class="top row  justify-content-between align-items-center">
+                    <div class="left col-12 col-lg-4 row">
                         <div class="tel-icon">
                             <i class="fa-solid fa-phone"></i>
                         </div>
@@ -433,6 +505,6 @@
         </div>
     </section>
 </body>
-<script src="js/contact.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="js/script.js"></script>
 </html>

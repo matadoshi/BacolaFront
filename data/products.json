@@ -2,6 +2,7 @@
    "products": [
       {
          "id": "1",
+         "sku":"KTRL59",
          "name": "Canada Dry Ginger Ale – 2 L Bottle",
          "description": "Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent",
          "stock": "IN STOCK",
@@ -25,12 +26,15 @@
       },
       {
          "id": "2",
+         "sku":"YO598C",
          "name": "Coca-Cola – 2 L Bottle",
          "description": "Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent",
          "stock": "IN STOCK",
          "picture": {
             "indexpage": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-49-346x310.jpg",
-            "productpage": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-49-600x540.jpg"
+            "productpage1": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-49-600x540.jpg",
+            "productpage1Full":"https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image.jpg"
+
          },
          "price": {
             "oldprice": "",
@@ -45,12 +49,15 @@
       },
       {
          "id": "3",
+         "sku":"IUDKA74",
          "name": "Naturally Flavored Cinnamon Vanilla Light Roast Coffee",
          "description": "Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent",
          "stock": "IN STOCK",
          "picture": {
             "indexpage": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-34-346x310.jpg",
-            "productpage": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-34-600x540.jpg"
+            "productpage1": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-34-600x540.jpg",
+            "productpage1Full":"https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-34.jpg"
+
          },
          "price": {
             "oldprice": "9.50",
@@ -65,12 +72,14 @@
       },
       {
          "id": "4",
+         "sku":"IKDAU4",
          "name": "Naturally Flavored Salted Caramel Light Roast Coffee",
          "description": "Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent",
          "stock": "IN STOCK",
          "picture": {
             "indexpage": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-33-346x310.jpg",
-            "productpage": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-33-600x540.jpg"
+            "productpage1": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-33-600x540.jpg",
+            "productpage1Full":"https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-33.jpg"
          },
          "price": {
             "oldprice": "",
@@ -90,7 +99,7 @@
          "stock": "IN STOCK",
          "picture": {
             "indexpage": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-23-346x310.jpg",
-            "productpage": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-23-600x540.jpg"
+            "productpage1": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-23-600x540.jpg"
          },
          "price": {
             "oldprice": "",
@@ -912,7 +921,7 @@
          "stock": "IN STOCK",
          "picture": {
             "indexpage": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-58-346x310.jpg",
-            "productpage1": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-58-60  0x540.jpg",
+            "productpage1": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-58-600x540.jpg",
             "productpage1Full": "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-58.jpg",
             "productpage2":"https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-44-600x540.jpg",
             "productpage2Full":"https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-44.jpg",
