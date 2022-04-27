@@ -1,6 +1,5 @@
 #basket{
     padding: 4rem 0;
-    text-align: center;
     .null{
         position: relative;
         .gray{
@@ -49,14 +48,52 @@
     }
     .basketFull{
         display: none;
-        img{
-            width: 90px;
-            height: 90px;
+        .prod-select{
+            border-bottom: 1px solid black;
+            img{
+                width: 90px;
+                height: 90px;
+            }
+            .removeProduct{
+                cursor: pointer;
+            }
+            .head{
+                padding: 1rem;
+                border-bottom: 1px solid black;
+            }
         }
-        .removeProduct{
-            cursor: pointer;
+
+        
+        
+        .qty-input{
+            button{
+                border-radius: 100%;
+                border: none;
+                background-color: #EDEEF5;
+                padding: 0.3rem;
+            }
+            input{
+                text-align: right;
+                border: none;
+                background: white;
+            }
         }
     }
-    
-    
+}
+@media(max-width:576px) {
+    #basket{
+      .basketFull{
+          .price-category,.subtotal-category{
+              display: none;
+          }
+            flex-wrap: wrap;
+           i{
+               background-color: #ab212b;
+               color:white;
+               padding: 0.5rem;
+                border-radius: 100%;
+           } 
+         
+      }  
+    }
 }

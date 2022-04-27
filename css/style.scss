@@ -111,6 +111,19 @@
         }
     }
 }
+.shop{
+    position: relative;
+    #counterStrike{
+        position: absolute; 
+        top:-10px;
+        right: 0;
+        background-color: #ea2b0f;
+        padding: 0.1rem 0.3rem;
+        border-radius: 100%;
+        font-size: 13px;
+        color: white;
+    }
+}
 #h-middle {
     padding: 2rem 0 0 0;
     .left {
@@ -122,33 +135,9 @@
             font-size: 0.7rem;
             opacity: 0.5;
         }
-    }
+    } 
     .middle {
-        .locationbar {
-            cursor: pointer;
-            color: black;
-            display: block;
-            background-color: white;
-            border: 1px solid #d9d9e9;
-            border-radius: 8px;
-            padding: 6px 0.7rem;
-            span {
-                font-size: 12px;
-                opacity: 0.5;
-            }
-            .location {
-                position: relative;
-                color: #2A3A95;
-                font-size: 0.825rem;
-                font-weight: 600;
-                i {
-                    position: absolute;
-                    bottom: 15px;
-                    right: 0px;
-                    font-size: 12px;
-                }
-            }
-        }
+        
         .input {
             position: relative;
             input {
@@ -257,6 +246,65 @@
                 .c-05,.c-06{
                     fill: #c13942;
                 }
+            }
+        }
+    }
+}
+.locationbar {
+    cursor: pointer;
+    color: black;
+    display: block;
+    background-color: white;
+    border: 1px solid #d9d9e9;
+    border-radius: 8px;
+    padding: 6px 0.7rem;
+    span {
+        font-size: 12px;
+        opacity: 0.5;
+    }
+    .location {
+        position: relative;
+        color: #2A3A95;
+        font-size: 0.825rem;
+        font-weight: 600;
+        i {
+            position: absolute;
+            bottom: 15px;
+            right: 0px;
+            font-size: 12px;
+        }
+    }
+}
+#MobileHeader{
+    display: none;
+    padding: 1rem 0;
+    .left{
+        i{
+            font-size:1.25rem;
+        }
+    }
+    .middle{
+        width: 93px;
+       img{
+        max-width: 100%;
+       }
+       
+    }
+    .right{
+        .shop{
+            position: relative;
+            i{
+                font-size: 1.25rem;
+            }
+            #counterStrikephone{
+                position: absolute; 
+                top:-10px;
+                right: 0;
+                background-color: #ea2b0f;
+                padding: 0.1rem;
+                border-radius: 100%;
+                font-size: 13px;
+                color: white;
             }
         }
     }
@@ -455,11 +503,41 @@
         z-index: 1;
         cursor: pointer;
     }
-    .first {
+    .first,.second{
         position: relative;
-        .text {
-            position: absolute;
-            z-index: 3;
+        
+    }
+    .text {
+        position: absolute;
+        z-index: 3;
+        top:0;
+        padding: 3rem 0;
+        .content-description{
+            font-size: .75rem;
+            font-family: "Dosis", sans-serif;
+        }
+        .content-discount{
+            font-family: "Dosis", sans-serif;
+            font-size: .875rem;
+            color: #038e42;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .entry-title{
+            width: 70%;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        .price{
+            font-family: "Dosis", sans-serif;
+            font-weight: 600;
+            color: #d51243;
+            font-size: 2.25rem ;
+        }
+        .button{
+            margin-top: 20px;
+            border-radius: 1.875rem !important;
+            padding: 0.7rem 1.25rem !important;
         }
     }
 }
@@ -1031,11 +1109,10 @@ footer {
             display: none !important;
         }
     }
-    #elementor{
         .product-buttons{
-            right: 0;
+            display: none;
         }
-    }
+
     footer{
         .top{
             text-align: left !important;
@@ -1051,6 +1128,34 @@ footer {
             text-align: left !important;
         }
     }
+    #elementor{
+        #elementorProductDeals{
+            .prod{
+                width: 100% !important;
+            }
+        }
+    }
+    #bestProducts{
+        .prod{
+            margin-bottom: 30px;
+        }
+    }
+    #MobileHeader{
+        display: block;
+    }
+}
+.toster{
+    display: none;
+    position: fixed;
+    background-color: #00b853;
+    right: 20px;
+    bottom: 25px;
+    width: 20%;
+    height: 50px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    font-size: 0.875rem;
 }
 .active{
     opacity: 1 !important; 

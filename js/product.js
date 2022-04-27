@@ -12,31 +12,23 @@ function GetProduct(prodCount) {
              return prodArray;
     });
 }
-async function main(count,id) {
+async function main(id) {
     products = await GetProduct(count);
     let x=``;
     products.forEach(prod=>{
-       x+=DrawProduct(prod,count);
+       if(prod.id==id){
+        x+=DrawProduct(prod);
+       }
     })
-    document.querySelector(id).innerHTML = x;
+    document.querySelector("#prodFull").innerHTML = x;
 }
-function DrawProduct(prod,count){
+function DrawProduct(prod){
     let x=``;
     let oldPrice='';
     let weight='';
     let Brand=''
     let Sku=''
     let Type=''
-    if(count>8){
-        count=5;
-    }
-    let col=12/count;
-    if(col==2){
-        col=4;
-    }
-    if(col==2.4){
-        col=col*10;
-    }
     if(prod.weight!=undefined){
         weight=prod.weight+" "+"kg"
     }
@@ -135,7 +127,6 @@ function DrawProduct(prod,count){
         `
         return x;
 }
-main(1,"#prodFull")
 let buttons=document.querySelectorAll('.prod-fulldesc .top button');
 let divs=document.querySelectorAll('.prod-fulldesc .aa');
 let startPoint = 0;
@@ -162,9 +153,9 @@ for(let button of buttons){
 function addCard(event){
     event.preventDefault();
     let id=event.target.getAttribute("data-id");
-    GetProductByID(id);
+    addBasketById(id);
 }
-function GetProductByID(id) {
+function addBasketById(id) {
     return fetch('data/products.json')
          .then(response => { return response.json() })
          .then(data => {
@@ -195,9 +186,21 @@ function GetProductByID(id) {
                 CountBasket();
      } ) 
  }
-function CountBasket(){
-    let basket = JSON.parse(localStorage.getItem('basket'));
-    let count = basket.length;
-    document.getElementById('counterStrike').innerHTML = count
+ function CountBasket(){
+    let total=0;
+    
+        let basket = JSON.parse(localStorage.getItem('basket'));
+        let count = basket.length;
+        document.getElementById('counterStrike').innerHTML = count;
+        document.getElementById('counterStrikephone').innerHTML = count;
+        
+        basket.forEach(prod=>{
+            let subtotal=Math.round(prod.Count*prod.Price,2)
+            total+=subtotal;
+            let allsubtotal=total
+            document.getElementById('rasxod').innerHTML=allsubtotal;
+            document.getElementById('rasxodphone').innerHTML=allsubtotal;  
+
+        })
 }
 CountBasket();

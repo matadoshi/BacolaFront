@@ -104,16 +104,33 @@ function GetProductByID(id) {
                        else{
                          existProd.Count += 1;
                        }
-                 
                        localStorage.setItem('basket',JSON.stringify(basket));
+                       toster(prod_name)
+                       $(".toster").show().delay(3000).fadeOut();
                     }
                 })
                 CountBasket();
      } ) 
  }
-function CountBasket(){
-    let basket = JSON.parse(localStorage.getItem('basket'));
-    let count = basket.length;
-    document.getElementById('counterStrike').innerHTML = count
-}
+ function CountBasket(){
+    let total=0;
+    
+        let basket = JSON.parse(localStorage.getItem('basket'));
+        let count = basket.length;
+        document.getElementById('counterStrike').innerHTML = count;
+        basket.forEach(prod=>{
+            let subtotal=Math.round(prod.Count*prod.Price,2)
+            total+=subtotal;
+            let allsubtotal=total
+            document.getElementById('rasxod').innerHTML=allsubtotal;  
+        })
+    }
 CountBasket();
+function toster(name){
+    $('.toster').css('display','block')
+    let x=''
+    x+=`
+        <p>${name + "sebete elave olundu"}</p>
+    `
+    document.querySelector('.toster').innerHTML=x;
+}

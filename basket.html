@@ -95,7 +95,7 @@
                 <div class="right col-lg-2 d-flex align-items-center text-center">
                     <a class="account ms-3 me-3" href="register.html"><i class="fa-solid fa-user"></i></a>
                     <div onclick="location.href = 'basket.html';" class="shop">
-                        <span class="me-3">$0.00</span>
+                        <span>$</span><span class="me-3 ms-1 allsubtotal" id="rasxod">$0.00</span>
                         <i class="fa-solid fa-basket-shopping"></i><span id="counterStrike"></span>
                         <div class="shop-view d-none">
                            <div class="null d-none">
@@ -261,7 +261,7 @@
     </header>
     <section id="basket">
         <div class="container">
-            <div class="row">
+            <div class="row text-center">
                 <div class="null">
                     <div class="gray">
                     </div>
@@ -278,19 +278,19 @@
                     <h2>YOUR CART IS CURRENTLY EMPTY.</h2>
                     <a href="index.html">Return to shop</a>
                 </div>
-                <div class="basketFull col-lg-12 d-flex">
-                    <div class="left col-lg-9">
+                <div class="basketFull col-lg-12 ">
+                    <div class="left col-lg-9 col-12">
                         <div class="head d-flex text-center">
-                            <div class="col-lg-6">Product</div>
-                            <div class="col-lg-1">Price</div>
-                            <div class="col-lg-2">Quantity</div>
-                            <div class="col-lg-2">Subtotal</div>
+                            <div class="col-lg-6 col-9">Product</div>
+                            <div class="col-lg-1 price-category">Price</div>
+                            <div class="col-lg-2 col-3">Quantity</div>
+                            <div class="col-lg-2 subtotal-category">Subtotal</div>
                         </div>
                         <div id="productsBasket" class="row align-items-center">
                         
                         </div>
                     </div>
-                    <div class="right col-lg-3">
+                    <div class="right col-lg-3 col-12">
                         <h3>Card Totals</h3>
                         <div class="d-flex justify-content-between subtotal">
                             <p>Subtotal</p>

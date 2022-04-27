@@ -75,17 +75,26 @@ function GetProductByID(id) {
                       else{
                         existProd.Count += 1;
                       }
-                
                       localStorage.setItem('basket',JSON.stringify(basket));
-                   }
+                      toster(prod_name)
+                      $(".toster").show().delay(3000).fadeOut();
+                    }
                })
                CountBasket();
     } ) 
 }
 function CountBasket(){
+let total=0;
+
     let basket = JSON.parse(localStorage.getItem('basket'));
     let count = basket.length;
-    document.getElementById('counterStrike').innerHTML = count
+    document.getElementById('counterStrike').innerHTML = count;
+    basket.forEach(prod=>{
+        let subtotal=Math.round(prod.Count*prod.Price,2)
+        total+=subtotal;
+        let allsubtotal=total
+        document.getElementById('rasxod').innerHTML=allsubtotal;  
+    })
 }
 CountBasket();
 async function main(count,id) {
@@ -95,7 +104,6 @@ async function main(count,id) {
        x+=Draw(prod,count);
     })
     document.querySelector(id).innerHTML = x;
-
 }
 function Draw(prod,count){
     let x=``;
@@ -124,8 +132,8 @@ function Draw(prod,count){
                 `
             }
         x += `
-        <div class="prod col-lg-${col} col-6">
-        <div onclick="location.href = 'product.html';" class="image">
+        <div class="prod col-lg-${col} col-6" data-id="${prod.id}">
+        <div onclick="productPage(event)" class="image">
             <img class="img-fluid" src="${prod.picture.indexpage}" alt="">
         </div>
         <div class="product-buttons">
@@ -135,14 +143,14 @@ function Draw(prod,count){
         <a class="d-block" href=""><i class="fa-brands fa-gratipay"></i></a>
         </div>
         <div class="p-info">
-            <a class="d-block prod-name" href="#">${prod.name}</a>
+            <a class="d-block prod-name" href="#" onclick="productPage(event)" >${prod.name}</a>
             <span class="prod-weight">${weight}</span>
             <span class="m-0 prod-stock">${prod.stock}</span>
             <span class="prod-rating">${rating}</span>
             <span class="text-decoration-line-through old-price">${oldPrice}</span>
             <span class="new-price">${"$" + prod.price.newprice}</span>
             <div class="addToCard">
-            <a class="addBasket" data-id="${prod.id}" onclick="addCard(event);" href="">Add to cart</a>
+            <a class="addBasket" onclick="addCard(event)" href="">Add to cart</a>
             </div>
         </div>
         </div>
@@ -174,7 +182,7 @@ var x = setInterval(function () {
 }, 1000);
 function addCard(event){
     event.preventDefault();
-    let id=event.target.getAttribute("data-id");
+    let id=event.target.parentElement.parentElement.parentElement.getAttribute("data-id");
     GetProductByID(id);
 }
 $(".homebtn").hover(function(e){
@@ -200,4 +208,16 @@ $(".fruitshover").hover(function(){
 $(".beveragehover").hover(function(){
     $(".beveragedropdown").toggleClass('active')
 })
-
+function toster(name){
+    $('.toster').css('display','block')
+    let x=''
+    x+=`
+        <p>${name +" "+"added to card"}</p>
+    `
+    document.querySelector('.toster').innerHTML=x;
+}
+function productPage(event){
+    event.preventDefault();
+    let id=event.target.parentElement.parentElement.getAttribute('data-id');  
+    location.href = "product.html";
+}
