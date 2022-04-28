@@ -1,26 +1,25 @@
 AOS.init()
 let products = [];
-function GetProduct(prodCount) {
+function GetProduct(id) {
     let prodArray = [];
    return fetch('data/products.json')
         .then(response => { return response.json() })
         .then(data => {
-                for(let i=0;i<prodCount;i++){
-                    let random=Math.floor(Math.random() * data.products.length);
-                    prodArray.push(data.products[random])
-                }  
-             return prodArray;
-    });
+            data.products.forEach(prod=>{
+                if(prod.id==id){
+                    prodArray.push(prod)
+                }
+            })
+            return prodArray
+        })
 }
-async function main(id) {
-    products = await GetProduct(count);
+async function mains(id) {
+    products = await GetProduct(id);
     let x=``;
     products.forEach(prod=>{
-       if(prod.id==id){
         x+=DrawProduct(prod);
-       }
-    })
-    document.querySelector("#prodFull").innerHTML = x;
+     });
+    document.querySelector(".product #prodFull").innerHTML = x;
 }
 function DrawProduct(prod){
     let x=``;
@@ -28,7 +27,9 @@ function DrawProduct(prod){
     let weight='';
     let Brand=''
     let Sku=''
-    let Type=''
+    let Type='';
+    let MFG='';
+    let LIFE='';
     if(prod.weight!=undefined){
         weight=prod.weight+" "+"kg"
     }
@@ -41,9 +42,16 @@ function DrawProduct(prod){
     if(prod.sku!=""){
         Sku="SKU"+":"+prod.sku
     }
-    if(prod.type!=""){
-        Type=prod.type;
+    if(prod.type!="" && prod.type!=undefined){
+        Type="Type"+":"+prod.type;
     }
+    if(prod.mfg!='' && prod.mfg!=undefined){
+        MFG="MFG"+":"+prod.mfg
+    }
+    if(prod.life!=''&& prod.life!=undefined){
+        LIFE="Life"+":"+prod.life
+    }
+
     let rating = '';
         for (let i = 0; i < prod.rating; i++) {
             rating += `
@@ -64,15 +72,19 @@ function DrawProduct(prod){
                             <div class="col-lg-5 img">
                                 <img src="${prod.picture.productpage1}" alt="">
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-4" data-id="${prod.id}">
                                 <span class="text-decoration-line-through old-price">${oldPrice}</span>
                                 <span class="new-price ms-2">${"$"+prod.price.newprice}</span>
                                 <p class="prod-stock mt-2">${prod.stock}</p>
                                 <p class="prod-description">${prod.description}</p>
-                                <div class="countProd d-flex mb-4">
-                                    <div class="col-lg-6"></div>
+                                <div class="countProd d-flex mb-4 align-items-center">
+                                    <div class="qty-input col-lg-6 col-3">
+                                    <button onclick="minus(event)" data-count="${prod.count}"class="minus col-lg-3 col-3"  type="button">-</button>
+                                    <input class="text-center product-qty col-lg-4 col-3" type="number" name="product-qty" min="0" value="1" disabled>
+                                    <button onclick="plus(event);" data-count=${prod.Count};" class="plus col-lg-3 col-3" type="button">+</button>
+                                    </div>
                                     <div class="addToCard active">
-                                    <a class="addBasket" data-id="${prod.id}" onclick="addCard(event);" href="">Add to cart</a>
+                                    <a class="addBasket" onclick="addCard(event);" href="">Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="wc d-flex">
@@ -85,9 +97,9 @@ function DrawProduct(prod){
                                         <span>Compare</span>
                                     </div>
                                 </div>
-                                <p class="prod-type">${Type}</p>
-                                <p class="prod-mfg">${prod.mfg}</p>
-                                <p class="prod-life">${prod.life}</p>
+                                <p class="prod-type mt-4">${Type}</p>
+                                <p class="prod-mfg">${MFG}</p>
+                                <p class="prod-life">${LIFE}</p>
                                 <hr>
                                 <p>Category: <span class="prod-category">${prod.category}</span></p>
                                 <div class="social mt-5">
@@ -127,9 +139,24 @@ function DrawProduct(prod){
         `
         return x;
 }
+function minus(event){
+    let value=event.target.nextElementSibling.value;
+    if(value==1){
+        return;
+    }
+    else{
+        value--;
+        event.target.nextElementSibling.value=value;
+    }
+} 
+function plus(event){
+   let value= event.target.previousElementSibling.value;
+   value++;
+   event.target.previousElementSibling.value=value;
+}
 let buttons=document.querySelectorAll('.prod-fulldesc .top button');
 let divs=document.querySelectorAll('.prod-fulldesc .aa');
-let startPoint = 0;
+let startPoint=0;
 for(let button of buttons){
     button.addEventListener('click',function()
     {
@@ -152,10 +179,11 @@ for(let button of buttons){
 }
 function addCard(event){
     event.preventDefault();
-    let id=event.target.getAttribute("data-id");
-    addBasketById(id);
+    let id=event.target.parentElement.parentElement.parentElement.getAttribute("data-id");
+    let count=event.target.parentElement.previousElementSibling.children[1].value;
+    addBasketById(id,count);
 }
-function addBasketById(id) {
+function addBasketById(id,count){
     return fetch('data/products.json')
          .then(response => { return response.json() })
          .then(data => {
@@ -173,34 +201,36 @@ function addBasketById(id) {
                            Name: prod_name,
                            Price: prod_price,
                            Src: prod_img,
-                           Count: 1
+                           Count: parseInt(count)
                          })
                        }
                        else{
-                         existProd.Count += 1;
+                         existProd.Count += parseInt(count);
+                         console.log(existProd.Count)
                        }
-                 
                        localStorage.setItem('basket',JSON.stringify(basket));
+                       toster(prod_name,count)
+                       $(".toster").show().delay(3000).fadeOut();
                     }
                 })
                 CountBasket();
      } ) 
- }
- function CountBasket(){
-    let total=0;
-    
-        let basket = JSON.parse(localStorage.getItem('basket'));
-        let count = basket.length;
-        document.getElementById('counterStrike').innerHTML = count;
-        document.getElementById('counterStrikephone').innerHTML = count;
-        
-        basket.forEach(prod=>{
-            let subtotal=Math.round(prod.Count*prod.Price,2)
-            total+=subtotal;
-            let allsubtotal=total
-            document.getElementById('rasxod').innerHTML=allsubtotal;
-            document.getElementById('rasxodphone').innerHTML=allsubtotal;  
-
-        })
 }
-CountBasket();
+function toster(name,count){
+    $('.toster').css('display','block')
+    let x=''
+    x+=`
+        <p>${count+"x"+name +""+"added to card"}</p>
+    `
+    document.querySelector('.toster').innerHTML=x;
+}
+function getCount(id){
+    let basket = JSON.parse(localStorage.getItem('basket'));
+    let count;
+    basket.forEach(prod=>{
+        if(prod.Id==id){
+           count=prod.Count;
+        }
+    })
+    return count; 
+}

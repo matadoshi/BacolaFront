@@ -137,7 +137,31 @@
         }
     } 
     .middle {
-        
+        .locationbar {
+            cursor: pointer;
+            color: black;
+            display: block;
+            background-color: white;
+            border: 1px solid #d9d9e9;
+            border-radius: 8px;
+            padding: 6px 0.7rem;
+            span {
+                font-size: 12px;
+                opacity: 0.5;
+            }
+            .location {
+                position: relative;
+                color: #2A3A95;
+                font-size: 0.825rem;
+                font-weight: 600;
+                i {
+                    position: absolute;
+                    bottom: 15px;
+                    right: 0px;
+                    font-size: 12px;
+                }
+            }
+        }
         .input {
             position: relative;
             input {
@@ -250,34 +274,11 @@
         }
     }
 }
-.locationbar {
-    cursor: pointer;
-    color: black;
-    display: block;
-    background-color: white;
-    border: 1px solid #d9d9e9;
-    border-radius: 8px;
-    padding: 6px 0.7rem;
-    span {
-        font-size: 12px;
-        opacity: 0.5;
-    }
-    .location {
-        position: relative;
-        color: #2A3A95;
-        font-size: 0.825rem;
-        font-weight: 600;
-        i {
-            position: absolute;
-            bottom: 15px;
-            right: 0px;
-            font-size: 12px;
-        }
-    }
-}
 #MobileHeader{
     display: none;
     padding: 1rem 0;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
     .left{
         i{
             font-size:1.25rem;
@@ -305,6 +306,46 @@
                 border-radius: 100%;
                 font-size: 13px;
                 color: white;
+            }
+        }
+    }
+    .burgerMenu{
+        width: 23.75rem;
+        background-color: WHITE;
+        position: fixed;
+        height: 100%;
+        top:0;
+        width: 0%;
+        display: none;
+        z-index: 111111;
+        .left{
+            width: 127px;
+        }
+        .middle{
+            .locationbar{
+                cursor: pointer;
+                color: black;
+                display: block;
+                background-color: white;
+                border: 1px solid #d9d9e9;
+                border-radius: 8px;
+               padding: 1.25rem 1.875rem .625rem;
+                span {
+                    font-size: 12px;
+                    opacity: 0.5;
+                }
+                .location {
+                    position: relative;
+                    color: #2A3A95;
+                    font-size: 0.825rem;
+                    font-weight: 600;
+                    i {
+                        position: absolute;
+                        bottom: 15px;
+                        right: 0px;
+                        font-size: 12px;
+                    }
+                }
             }
         }
     }
@@ -474,7 +515,7 @@
                 } 
             }
         }
-    }
+}
 #slider {
     img {
         width: 100%;
@@ -642,6 +683,7 @@
             }
         }
         .prod-progress{
+            
             
             .progress{
                 background: linear-gradient(90deg, #d51243 0%, #ff6048 50%, #ffcd00 100%);
@@ -918,35 +960,27 @@
 }
 footer {
     background-color: #F7F8FD;
-
     .top {
         padding: 2rem;
         border-bottom: 1px solid #d9d9e9;
-
         .first,
         .second,
         .third {
             border-right: 1px solid #d9d9e9
         }
-
         i {
             margin-right: 5px;
         }
-
         span {
             font-size: .8125rem;
             font-weight: 500;
             line-height: 1.5;
         }
-
     }
-
-    .middle {
+     .middle {
         padding: 4rem 0;
-
         ul {
             padding: 0;
-
             a {
                 color: #71778e;
                 font-weight: 400;
@@ -1096,14 +1130,75 @@ footer {
         position: absolute;
     }
 }
+
+.toster{
+    display: none;
+    position: fixed;
+    background-color: #00b853;
+    right: 20px;
+    bottom: 25px;
+    width: 20%;
+    height: 50px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    font-size: 0.875rem;
+}
+.active{
+    opacity: 1 !important; 
+    visibility: visible !important;
+    transition: 0.5s;
+}
+.activeDisplay{
+    color:black !important;
+}
+#mobileselectMenu{
+    display: none;
+    .all{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 11111;
+        padding: 1rem 0.7rem;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        i{
+            cursor: pointer;
+            color:#a7a7b5
+        }
+        .searchMobile{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: white;
+            padding: 1rem 1rem 1.5rem 1rem;
+            z-index: 111111111;
+            input{
+                outline: none;
+                border: none;
+                border: 8px;
+                background-color: #e4e5ee;
+                padding: 0.5rem 1rem;
+            }
+            i{
+                display: block;
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+
+}
 @media (max-width:576px) {
     #h-top,#h-middle,#h-bottom{
         display: none;
     }
     #slider{
+        .first,.second{
+            object-fit: cover;
+        }
         img{
-        object-fit: cover;
-
+            width: 100%;
         }
         .left_arrow,.right_arrow{
             display: none !important;
@@ -1143,25 +1238,7 @@ footer {
     #MobileHeader{
         display: block;
     }
-}
-.toster{
-    display: none;
-    position: fixed;
-    background-color: #00b853;
-    right: 20px;
-    bottom: 25px;
-    width: 20%;
-    height: 50px;
-    border-radius: 8px;
-    text-align: center;
-    color: white;
-    font-size: 0.875rem;
-}
-.active{
-    opacity: 1 !important; 
-    visibility: visible !important;
-    transition: 0.5s;
-}
-.activeDisplay{
-    color:black !important;
+    #mobileselectMenu{
+        display: block;
+    }
 }

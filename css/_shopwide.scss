@@ -3,7 +3,7 @@
 }
 #products{
     padding: 3rem 0;
-    .left{
+    .leftFilter{
         h5{
             font-family: 'Dosis', sans-serif !important;       
             font-size: .9375rem;
@@ -37,6 +37,31 @@
             a{
                 color: #71778e;
                 margin: 0 10px;
+            }
+        }
+        
+    }
+}
+.reklamlar{
+    display: none;
+}
+@media (max-width:576px){
+    .widget-img{
+        display: none;
+    }
+    #products{
+        .leftFilter{
+            display: none;
+        }
+        .reklamlar{
+            display: block;
+            border-radius: 8px;
+                object-fit: cover;
+
+            img{
+                width: 100%;
+                border-radius: 8px;
+                object-fit: cover;
             }
         }
     }

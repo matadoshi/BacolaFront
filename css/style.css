@@ -5,6 +5,7 @@
           box-sizing: border-box;
   text-decoration: none !important;
   list-style: none !important;
+  vertical-align: bottom;
 }
 
 body {
@@ -122,8 +123,9 @@ body {
   visibility: visible;
 }
 
-.prod-type {
-  text-transform: uppercase;
+.prod-type, .prod-mfg, .prod-life {
+  font-size: .75rem;
+  color: #3e445a;
 }
 
 #register {
@@ -621,30 +623,30 @@ body {
   padding: 3rem 0;
 }
 
-#products .left h5 {
+#products .leftFilter h5 {
   font-family: 'Dosis', sans-serif !important;
   font-size: .9375rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
 }
 
-#products .left ul {
+#products .leftFilter ul {
   padding: 0;
 }
 
-#products .left ul li {
+#products .leftFilter ul li {
   margin-bottom: .625rem;
 }
 
-#products .left ul li a {
+#products .leftFilter ul li a {
   color: #71778e;
 }
 
-#products .left ul li a input {
+#products .leftFilter ul li a input {
   border-color: #71778e;
 }
 
-#products .left ul li a span {
+#products .leftFilter ul li a span {
   margin-left: 10px;
   font-size: .8125rem;
 }
@@ -658,6 +660,31 @@ body {
 #products .right .shop-view a {
   color: #71778e;
   margin: 0 10px;
+}
+
+.reklamlar {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .widget-img {
+    display: none;
+  }
+  #products .leftFilter {
+    display: none;
+  }
+  #products .reklamlar {
+    display: block;
+    border-radius: 8px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #products .reklamlar img {
+    width: 100%;
+    border-radius: 8px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
 }
 
 #covid {
@@ -816,6 +843,35 @@ body {
   opacity: 0.5;
 }
 
+#h-middle .middle .locationbar {
+  cursor: pointer;
+  color: black;
+  display: block;
+  background-color: white;
+  border: 1px solid #d9d9e9;
+  border-radius: 8px;
+  padding: 6px 0.7rem;
+}
+
+#h-middle .middle .locationbar span {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+#h-middle .middle .locationbar .location {
+  position: relative;
+  color: #2A3A95;
+  font-size: 0.825rem;
+  font-weight: 600;
+}
+
+#h-middle .middle .locationbar .location i {
+  position: absolute;
+  bottom: 15px;
+  right: 0px;
+  font-size: 12px;
+}
+
 #h-middle .middle .input {
   position: relative;
 }
@@ -947,38 +1003,11 @@ body {
   fill: #c13942;
 }
 
-.locationbar {
-  cursor: pointer;
-  color: black;
-  display: block;
-  background-color: white;
-  border: 1px solid #d9d9e9;
-  border-radius: 8px;
-  padding: 6px 0.7rem;
-}
-
-.locationbar span {
-  font-size: 12px;
-  opacity: 0.5;
-}
-
-.locationbar .location {
-  position: relative;
-  color: #2A3A95;
-  font-size: 0.825rem;
-  font-weight: 600;
-}
-
-.locationbar .location i {
-  position: absolute;
-  bottom: 15px;
-  right: 0px;
-  font-size: 12px;
-}
-
 #MobileHeader {
   display: none;
   padding: 1rem 0;
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 #MobileHeader .left i {
@@ -1010,6 +1039,50 @@ body {
   border-radius: 100%;
   font-size: 13px;
   color: white;
+}
+
+#MobileHeader .burgerMenu {
+  width: 23.75rem;
+  background-color: WHITE;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  width: 0%;
+  display: none;
+  z-index: 111111;
+}
+
+#MobileHeader .burgerMenu .left {
+  width: 127px;
+}
+
+#MobileHeader .burgerMenu .middle .locationbar {
+  cursor: pointer;
+  color: black;
+  display: block;
+  background-color: white;
+  border: 1px solid #d9d9e9;
+  border-radius: 8px;
+  padding: 1.25rem 1.875rem .625rem;
+}
+
+#MobileHeader .burgerMenu .middle .locationbar span {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+#MobileHeader .burgerMenu .middle .locationbar .location {
+  position: relative;
+  color: #2A3A95;
+  font-size: 0.825rem;
+  font-weight: 600;
+}
+
+#MobileHeader .burgerMenu .middle .locationbar .location i {
+  position: absolute;
+  bottom: 15px;
+  right: 0px;
+  font-size: 12px;
 }
 
 #h-bottom {
@@ -1878,13 +1951,84 @@ footer .middle h4 {
   position: absolute;
 }
 
+.toster {
+  display: none;
+  position: fixed;
+  background-color: #00b853;
+  right: 20px;
+  bottom: 25px;
+  width: 20%;
+  height: 50px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.activeDisplay {
+  color: black !important;
+}
+
+#mobileselectMenu {
+  display: none;
+}
+
+#mobileselectMenu .all {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 11111;
+  padding: 1rem 0.7rem;
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+#mobileselectMenu .all i {
+  cursor: pointer;
+  color: #a7a7b5;
+}
+
+#mobileselectMenu .all .searchMobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  padding: 1rem 1rem 1.5rem 1rem;
+  z-index: 111111111;
+}
+
+#mobileselectMenu .all .searchMobile input {
+  outline: none;
+  border: none;
+  border: 8px;
+  background-color: #e4e5ee;
+  padding: 0.5rem 1rem;
+}
+
+#mobileselectMenu .all .searchMobile i {
+  display: block;
+  position: absolute;
+  right: 0;
+}
+
 @media (max-width: 576px) {
   #h-top, #h-middle, #h-bottom {
     display: none;
   }
-  #slider img {
+  #slider .first, #slider .second {
     -o-object-fit: cover;
        object-fit: cover;
+  }
+  #slider img {
+    width: 100%;
   }
   #slider .left_arrow, #slider .right_arrow {
     display: none !important;
@@ -1912,30 +2056,8 @@ footer .middle h4 {
   #MobileHeader {
     display: block;
   }
-}
-
-.toster {
-  display: none;
-  position: fixed;
-  background-color: #00b853;
-  right: 20px;
-  bottom: 25px;
-  width: 20%;
-  height: 50px;
-  border-radius: 8px;
-  text-align: center;
-  color: white;
-  font-size: 0.875rem;
-}
-
-.active {
-  opacity: 1 !important;
-  visibility: visible !important;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.activeDisplay {
-  color: black !important;
+  #mobileselectMenu {
+    display: block;
+  }
 }
 /*# sourceMappingURL=style.css.map */

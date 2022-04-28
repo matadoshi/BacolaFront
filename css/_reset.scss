@@ -4,6 +4,7 @@
     box-sizing: border-box;
     text-decoration: none !important;
     list-style: none !important;
+    vertical-align:bottom;
 }
 body{
     font-family: 'Inter', sans-serif;
@@ -99,6 +100,7 @@ body{
         visibility: visible;
     }
 }
-.prod-type{
-    text-transform: uppercase;
+.prod-type,.prod-mfg,.prod-life{
+    font-size: .75rem;
+    color:#3e445a;
 }
