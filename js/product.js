@@ -78,12 +78,12 @@ function DrawProduct(prod){
                                 <p class="prod-stock mt-2">${prod.stock}</p>
                                 <p class="prod-description">${prod.description}</p>
                                 <div class="countProd d-flex mb-4 align-items-center">
-                                    <div class="qty-input col-lg-6 col-3">
+                                    <div class="qty-input col-lg-6 col-6">
                                     <button onclick="minus(event)" data-count="${prod.count}"class="minus col-lg-3 col-3"  type="button">-</button>
                                     <input class="text-center product-qty col-lg-4 col-3" type="number" name="product-qty" min="0" value="1" disabled>
                                     <button onclick="plus(event);" data-count=${prod.Count};" class="plus col-lg-3 col-3" type="button">+</button>
                                     </div>
-                                    <div class="addToCard active">
+                                    <div class="addToCard active col-lg-6 col-6">
                                     <a class="addBasket" onclick="addCard(event);" href="">Add to cart</a>
                                     </div>
                                 </div>
@@ -188,7 +188,7 @@ function addBasketById(id,count){
          .then(response => { return response.json() })
          .then(data => {
                 data.products.forEach(prod=>{
-                    if(prod.id==id){
+                    if(prod.id==id && prod.stock=="IN STOCK"){
                      let basket = JSON.parse(localStorage.getItem('basket'));
                      let data_id = prod.id;
                      let prod_name = prod.name;
@@ -234,4 +234,4 @@ function getCount(id){
     })
     return count; 
 }
-mains(53)
+mains(10)

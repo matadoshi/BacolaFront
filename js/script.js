@@ -1,3 +1,4 @@
+AOS.init()
 $(".homebtn").hover(function(e){
     e.preventDefault();
     $(".dropdownhome").toggleClass("active")    
@@ -31,6 +32,20 @@ $('.sidebar-menu i').click(function () {
 });
 $('#menu-btn, #btn-close-navbar, .overlay').click(function () {
     $('.overlay, .sidebar').toggleClass('active');
+})
+$('.shopwidePage').click(function(){
+    location.href='shopwide.html'
+})
+
+let width=$(window).width()
+$(window).resize(function () {
+    if (width <= 580) {
+        console.log(width)
+        $('#elementorProduct').addClass('g-4')
+        $('#autoshipProducts').addClass('g-4')
+        $('#shopwideProdutcs').addClass('g-4')
+        $('#recentlyProducts').addClass('g-3')
+    }
 })
 function CountBasket(){
     let total=0;

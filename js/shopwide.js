@@ -63,7 +63,7 @@ function Draw(prod,count){
                 <span class="prod-rating">${rating}</span>
                 <span class="text-decoration-line-through old-price">${oldPrice}</span>
                 <span class="new-price">${"$" + prod.price.newprice}</span>
-                <div class="addToCard">
+                <div class="addToCard col-12 col-lg-12">
                 <a class="addBasket" onclick=addCard(event) data-id="${prod.id}" href="">Add to cart</a>
                 </div>
             </div>
@@ -84,7 +84,7 @@ function GetProductByID(id) {
          .then(response => { return response.json() })
          .then(data => {
                 data.products.forEach(prod=>{
-                    if(prod.id==id){
+                    if(prod.id==id && prod.stock=="IN STOCK"){
                      let basket = JSON.parse(localStorage.getItem('basket'));
                      let data_id = prod.id;
                      let prod_name = prod.name;
@@ -113,7 +113,6 @@ function GetProductByID(id) {
  }
  function CountBasket(){
     let total=0;
-    
         let basket = JSON.parse(localStorage.getItem('basket'));
         let count = basket.length;
         document.getElementById('counterStrike').innerHTML = count;
@@ -133,3 +132,10 @@ function toster(name){
     `
     document.querySelector('.toster').innerHTML=x;
 }
+function Show(event){
+    let count =event.target.getAttribute('data-show')
+    main(count,'#shopwideProdutcs')
+}
+$('.viewlistdropdown').click(function(){
+    $('#dropdownShowCount').toggleClass("active")
+})

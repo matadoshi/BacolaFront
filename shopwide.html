@@ -60,7 +60,7 @@
                                         <a href="#">Home 2</a>
                                     </li>
                                     <li>
-                                        <a href="#">Home 3</a>
+                                        <a class="shopwidePage" href="#">Home 3</a>
                                     </li>
                                     <li>
                                         <a href="#">Home 4</a>
@@ -163,7 +163,7 @@
                 </div>
             </div>
         </div>
-</section>
+    </section>
     <header>
         <section id="covid">
             <p>Due to the <strong>COVID 19</strong> epidemic, orders may be processed with a slight delay</p>
@@ -611,7 +611,7 @@
                     </div>
                 </div>
                 <div class="reklamlar col-12 mb-3">
-                    <img   src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg" alt="">
+                    <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg" alt="">
                 </div>
                 <div class="right col-lg-9 col-12">
                     <div class="shop-view d-flex justify-content-between px-2">
@@ -629,10 +629,16 @@
                                 <i class="fa-solid fa-ellipsis"></i>
                             </a>
                         </div>
-                        <div class="right">
-                            <span>Sort by latest <i class="fa-solid fa-angle-down"></i></span>
-                            <span>Show</span>
-                            <span class="viewlistdropdown">15<i class="fa-solid fa-angle-down"></i></span>
+                        <div class="right align-items-center d-flex align-items-center">
+                            <div>Sort by latest<i class="ms-2 fa-solid fa-angle-down"></i></div>
+                            <div class="ms-4">Show</span><span class="ms-2 viewlistdropdown">15<i class="ms-1 me-4 fa-solid fa-angle-down"></i>
+                                <ul id="dropdownShowCount" class="p-0">
+                                    <li onclick="Show(event)" data-show="15">15</li>
+                                    <li onclick="Show(event)" data-show="30">30</li>
+                                    <li onclick="Show(event)" data-show="45">45</li>
+                                    <li onclick="Show(event)" data-show="60">60</li>
+                                </ul>
+                        </div>
                         </div>
                     </div>
                     <div id="shopwideProdutcs" class="row container-fluid py-4">

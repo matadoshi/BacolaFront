@@ -1,6 +1,3 @@
-.addToCard{
-    width: 100%;
-}
 .product{
     padding: 3rem 0;
     background-color: #F7F8FD;
@@ -37,6 +34,25 @@
     .old-price{
         font-family: 'Dosis', sans-serif !important;       
         font-size: 1.25rem !important;
+    }
+    .minus,.plus{
+        background-color: #F7F8FD;
+        border: none;
+        padding: 0.5rem;
+        border-radius: 100%;
+        transition: 0.3s;
+        &:hover{
+            background-color: #FFCD00;
+        }
+    }
+    .product-qty{
+        background-color: white;
+        border: none;
+        padding: 0.5rem;
+    }
+    .addToCard{
+        margin: 0;
+        position: static;
     }
     .prod-category{
         font-size: .75rem;

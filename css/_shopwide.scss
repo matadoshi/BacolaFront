@@ -37,6 +37,23 @@
                 margin: 0 10px;
             }
         }
+        .right{
+            div{
+                font-size: .8125rem;
+                position: relative;
+            }
+            #dropdownShowCount{
+                opacity: 0;
+                visibility: hidden;
+                padding: 0.5rem 1rem !important;
+                left: 35px;
+                top: 35px;
+                position: absolute;
+                z-index: 11111;
+                background-color: white;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            }
+        }
     }
 }
 .reklamlar{
