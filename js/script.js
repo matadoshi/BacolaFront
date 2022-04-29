@@ -1,7 +1,9 @@
-
 $(".homebtn").hover(function(e){
     e.preventDefault();
     $(".dropdownhome").toggleClass("active")    
+})
+$('.prod').hover(function(e){
+    $('.product-buttons').toggleClass("active")
 })
 $(".shopbtn").hover(function(e){
     e.preventDefault();
@@ -22,28 +24,28 @@ $(".fruitshover").hover(function(){
 $(".beveragehover").hover(function(){
     $(".beveragedropdown").toggleClass('active')
 })
-$(".burgermenu").click(function(){
-    $(".burgerMenu").toggle().css({
-        "width":"100%",
-        "display":"block"
-    });
-})
-$(".fa-xmark").click(function(){
-    $(".burgerMenu").css({
-        "width":"0%",
-        "display":"none"
-    })
+$('.sidebar-menu i').click(function () {
+    $(this).parents('.dropdown').find('.dropdown').not($(this).siblings('ul')).slideUp();
+    $(this).siblings('ul').stop(true, true).slideToggle();
+    $(this).toggleClass('active');
+});
+$('#menu-btn, #btn-close-navbar, .overlay').click(function () {
+    $('.overlay, .sidebar').toggleClass('active');
 })
 function CountBasket(){
     let total=0;
     let basket = JSON.parse(localStorage.getItem('basket'));
     let count = basket.length;
-    document.getElementById('counterStrike').innerHTML = count;
+    document.querySelectorAll('#counterStrike').forEach(counter=>{
+        counter.innerHTML=count
+    })
     basket.forEach(prod=>{
         let subtotal=Math.round(prod.Count*prod.Price,2)
         total+=subtotal;
         let allsubtotal=total
-        document.getElementById('rasxod').innerHTML=allsubtotal;  
+        document.querySelectorAll('#rasxod').forEach(rasxod=>{
+            rasxod.innerHTML=allsubtotal
+        });  
     })
 }
 CountBasket();
@@ -52,3 +54,6 @@ function productPage(event){
     let id=event.target.parentElement.parentElement.getAttribute("data-id");
     mains(id);
 }
+$('.logo').click(function(){
+    location.href='index.html'
+})

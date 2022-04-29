@@ -26,6 +26,144 @@
     <title>Document</title>
 </head>
 <body >
+    <div class="overlay"></div>
+    <section class="sidebar">
+        <div class="sidebarContent">
+            <div class="top">
+                <div class="logo">
+                    <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo.png" alt="">
+                </div>
+                <div class="close" id="btn-close-navbar">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="locationbar col-lg-3">
+                    <span>Your Location</span>
+                    <div class="location">
+                        Select a Location
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+            </div>
+                <div class="sidebar-menu">
+                    <p class="copyright m-0">Site Navigation</p>
+                    <nav>
+                        <ul class="dropdown-h p-0">
+                            <li class="dropdown-section">
+                                <i class="fa-solid fa-angle-down"></i>
+                                <a href="#">Home</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="#">Home 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Home 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Home 3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Home 4</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Home 5</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <i class="fa-solid fa-angle-down"></i>
+                                <a href="#">Shop</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                        <a href="#">Shop List</a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="#">Shop Default</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shop – Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shop Wide</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Load More button</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                        <a href="#">Product Details</a>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="#">Shop Default</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shop – Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shop Wide</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Load More button</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="#">Meats & Sea Food</a>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="#">Bakery</a>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="#">Blog</a>
+                            </li>
+                            <li class="dropdown-section">
+                                <a href="#">Contact</a>
+                            </li>
+                            <p class="copyright m-0"> Copyright 2022 © Bacola WordPress Theme. All rights reserved. Powered by KlbTheme.</p>
+                            <li class="dropdown-section">
+                                <i class="fa-solid fa-angle-down"></i>
+                                <a href="#">Language</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="#">English</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">French</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">German</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Spanish</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-section">
+                                <i class="fa-solid fa-angle-down"></i>
+                                <a href="#">USD</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a href="#">USD</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">INR</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">GBP</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+</section>
     <header>
         <section id="covid">
             <p>Due to the <strong>COVID 19</strong> epidemic, orders may be processed with a slight delay</p>
@@ -270,47 +408,25 @@
             </div>
         </section>
     </header>
-    <section id="MobileHeader">
-        <div class="container-fluid icon">
+    <section id="mobile-header">
+        <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="left col-3">
-                    <i class="fa-solid fa-bars burgermenu"></i>
+                <div class="col-2">
+                    <i id="menu-btn" class="fas fa-bars menu"></i>
                 </div>
-                <div class="middle col-5">
-                    <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo-mobile.png" alt="">
+                <div class="col-8 text-center">
+                    <img class="logo" src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo-mobile.png" alt="">
                 </div>
-                <div class="right col-3 text-end">
-                    <div onclick="location.href = 'basket.html';" class="shop">
-                        <span>$</span><span class="ms-1 allsubtotal" id="rasxodphone">$0.00</span>
-                        <i class="fa-solid fa-basket-shopping"></i><span id="counterStrikephone"></span>
-                    </div>
+                <div onclick="location.href = 'basket.html';" class="col-2 d-flex text-end shop">
+                        <div class="col-6"><span>$</span><span class="me-3 ms-1 allsubtotal" id="rasxod"></span></div>
+                        <div class="col-6"><i class="fa-solid fa-basket-shopping"><span id="counterStrike"></span></i></div>
                 </div>
                 </div>
             </div>
-        <div class="burgerMenu">
-            <div class="top px-4 col-12 d-flex justify-content-between align-items-center">
-               <div class="left col-6 d-flex">
-                <img class="img-fluid" src="https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo.png" alt="">
-                </div>
-                <div class="right col-6 text-end ">
-                <i class="fa-solid fa-xmark "></i>
-
-                </div>
-            </div>
-            <div class="middle col-12">
-                <div class="locationbar">
-                    <span>Your Location</span>
-                    <div class="location">
-                        Select a Location
-                        <i class="fa-solid fa-angle-down"></i>
-                    </div>
-            </div>
-            </div>
-        </div>
         </div>
     </section>
-    <section id="mobileselectMenu">
-        <div class="all d-flex justify-content-between">
+    <section id="mobileselectMenu" class="col-10">
+        <div class="all d-flex justify-content-between col-10">
             <div class="col-lg-24">
                 <a href="shopwide.html"><i class="fa-solid fa-store"></i></a>
             </div>
@@ -328,7 +444,7 @@
                 <a href="register.html"><i class="fa-solid fa-user"></i></a>
             </div>
             <div class="col-lg-24">
-                <a href="#"><i class="fa-solid fa-bars burgermenu"></i></a>
+                <a href="#"><i id="menu-btn" class="fa-solid fa-bars"></i></a>
             </div>
         </div>
     </section>
@@ -728,5 +844,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/jquery.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/script.js"></script>
 <script src="js/shopwide.js"></script>
 </html>

@@ -87,7 +87,6 @@ function plus(event){
 $(".removeProduct").click(function(e){
     let basket = JSON.parse(localStorage.getItem('basket'));
     let id=e.target.parentElement.parentElement.getAttribute('data-id');
-
     basket.forEach(function(prod,index){
         if(prod.Id==id){
             basket.splice(index,1)
@@ -97,3 +96,6 @@ $(".removeProduct").click(function(e){
     location.reload();
 })  
 CountBasket();
+$('.refresh').click(function(){
+    location.reload();
+})

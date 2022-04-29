@@ -18,7 +18,6 @@ async function main(count,id) {
         x+=Draw(prod,count);
         })
         document.querySelector(id).innerHTML = x;
-        // делай что хотел
 }
 function Draw(prod,count){
         let x=``;

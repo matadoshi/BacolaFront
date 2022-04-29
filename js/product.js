@@ -234,3 +234,4 @@ function getCount(id){
     })
     return count; 
 }
+mains(53)

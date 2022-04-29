@@ -48,7 +48,7 @@ function GetProduct(prodCount) {
                     let random=Math.floor(Math.random() * data.products.length);
                     prodArray.push(data.products[random])
                 }  
-             return prodArray;
+            return prodArray;
     });
 }
 function GetProductByID(id){
@@ -92,6 +92,25 @@ async function main(count,id) {
     document.querySelector(id).innerHTML = x;
 }
 function Draw(prod,count){
+    let basket = JSON.parse(localStorage.getItem('basket'));
+    btn=``;
+    basket.forEach(product=>{
+        if(product===prod && product.Count==0){
+            btn+=`<div class="qty-input col-lg-2 col-3">
+            <button onclick="minus(event);" data-count=${product.Count} class="minus col-lg-3 col-3"  type="button">-</button>
+            <input class="product-qty col-lg-4 col-3" type="number" name="product-qty" min="0" value="${product.Count}" disabled>
+            <button onclick="plus(event);"data-count=${product.Count};" class="plus col-lg-3 col-3" type="button">+</button>
+            </div>
+            `
+        }
+        else{
+            btn+=`
+            <div class="addToCard">
+            <a class="addBasket" onclick="addCard(event)" href="">Add to cart</a>
+            </div>
+            `
+        }
+    })
     let x=``;
     let oldPrice='';
     let weight='';
@@ -135,13 +154,10 @@ function Draw(prod,count){
             <span class="prod-rating">${rating}</span>
             <span class="text-decoration-line-through old-price">${oldPrice}</span>
             <span class="new-price">${"$" + prod.price.newprice}</span>
-            <div class="addToCard">
-            <a class="addBasket" onclick="addCard(event)" href="">Add to cart</a>
+            ${btn}
             </div>
         </div>
-        </div>
         `
-        let addBasket = document.querySelectorAll(`[class="addBasket"]`);
         return x;
 }
 main(6,"#elementorProduct");
@@ -175,7 +191,8 @@ function toster(name){
     $('.toster').css('display','block')
     let x=''
     x+=`
-        <p>${name +" "+"added to card"}</p>
+        <p class="m-0">${name +" "+"added to card"}</p>
+        <a href="basket.html">View Cart</a>
     `
     document.querySelector('.toster').innerHTML=x;
 }
