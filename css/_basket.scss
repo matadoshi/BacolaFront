@@ -103,6 +103,21 @@
                 background: white;
             }
         }
+        .right{
+            border: 1px solid #DEE2E6;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .checkout{
+            button{
+                background-color: #ab212b ;
+                border: none;
+                padding: 0.5rem 1.5rem;
+                color: white;
+                border-radius: 8px;
+            }
+            
+        }
     }
 }
 @media(max-width:576px) {

@@ -131,6 +131,23 @@ body {
   color: #3e445a;
 }
 
+.toster {
+  display: none;
+  position: fixed;
+  background-color: #00b853;
+  right: 20px;
+  bottom: 25px;
+  width: 20%;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.toster a {
+  color: white;
+}
+
 #register {
   padding: 2rem 0;
 }
@@ -454,6 +471,20 @@ body {
   text-align: right;
   border: none;
   background: white;
+}
+
+#basket .basketFull .right {
+  border: 1px solid #DEE2E6;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+#basket .basketFull .checkout button {
+  background-color: #ab212b;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  color: white;
+  border-radius: 8px;
 }
 
 @media (max-width: 576px) {
@@ -2170,20 +2201,6 @@ footer .middle h4 {
   top: 100px;
   font-size: 20px;
   position: absolute;
-}
-
-.toster {
-  display: none;
-  position: fixed;
-  background-color: #00b853;
-  right: 20px;
-  bottom: 25px;
-  width: 20%;
-  height: 50px;
-  border-radius: 8px;
-  text-align: center;
-  color: white;
-  font-size: 0.875rem;
 }
 
 .active {

@@ -36,7 +36,6 @@ $('#menu-btn, #btn-close-navbar, .overlay').click(function () {
 $('.shopwidePage').click(function(){
     location.href='shopwide.html'
 })
-
 let width=$(window).width()
 $(window).resize(function () {
     if (width <= 580) {

@@ -93,78 +93,67 @@ async function main(count,id) {
 }
 function Draw(prod,count){
     let basket = JSON.parse(localStorage.getItem('basket'));
-    btn=``;
-    basket.forEach(product=>{
-        if(product===prod && product.Count==0){
-            btn+=`<div class="qty-input col-lg-2 col-3">
-            <button onclick="minus(event);" data-count=${product.Count} class="minus col-lg-3 col-3"  type="button">-</button>
-            <input class="product-qty col-lg-4 col-3" type="number" name="product-qty" min="0" value="${product.Count}" disabled>
-            <button onclick="plus(event);"data-count=${product.Count};" class="plus col-lg-3 col-3" type="button">+</button>
-            </div>
+    let btn=``;
+        btn+=
             `
-        }
-        else{
-            btn+=`
             <div class="addToCard">
             <a class="addBasket" onclick="addCard(event)" href="">Add to cart</a>
             </div>
-            `
-        }
-    })
-    let x=``;
-    let oldPrice='';
-    let weight='';
-    if(count>8){
-        count=5;
-    }
-    let col=12/count;
-    if(col==2){
-        col=4;
-    }
-    if(col==2.4){
-        col=col*10;
-    }
-    if(prod.weight!=undefined){
-        weight=prod.weight+" "+"kg"
-    }
-    if(prod.price.oldprice!=""){
-        oldPrice="$" + prod.price.oldprice;
-    }
-    let rating = '';
-        for (let i = 0; i < prod.rating; i++) {
-            rating += `
-                <i class="fa-solid fa-star"></i>
-                `
-            }
-        x += `
-        <div class="prod col-lg-${col} col-6" data-id="${prod.id}">
-        <div onclick="productPage(event)" class="image">
-            <img class="img-fluid" src="${prod.picture.indexpage}" alt="">
-        </div>
-        <div class="product-buttons">
-        <a class="d-block" href="">
-            <i class="fa-solid fa-maximize"></i>   
-        </a>
-        <a class="d-block" href=""><i class="fa-brands fa-gratipay"></i></a>
-        </div>
-        <div class="p-info">
-            <a class="d-block prod-name" href="#" onclick="productPage(event)" >${prod.name}</a>
-            <span class="prod-weight">${weight}</span>
-            <span class="m-0 prod-stock">${prod.stock}</span>
-            <span class="prod-rating">${rating}</span>
-            <span class="text-decoration-line-through old-price">${oldPrice}</span>
-            <span class="new-price">${"$" + prod.price.newprice}</span>
-            ${btn}
-            </div>
-        </div>
         `
-        return x;
+        let x=``;
+        let oldPrice='';
+        let weight='';
+        if(count>8){
+            count=5;
+        }
+        let col=12/count;
+        if(col==2){
+            col=4;
+        }
+        if(col==2.4){
+            col=col*10;
+        }
+        if(prod.weight!=undefined){
+            weight=prod.weight+" "+"kg"
+        }
+        if(prod.price.oldprice!=""){
+            oldPrice="$" + prod.price.oldprice;
+        }
+        let rating = '';
+            for (let i = 0; i < prod.rating; i++) {
+                rating += `
+                    <i class="fa-solid fa-star"></i>
+                    `
+                }
+            x += `
+            <div class="prod col-lg-${col} col-6" data-id="${prod.id}">
+            <div onclick="productPage(event)" class="image">
+                <img class="img-fluid" src="${prod.picture.indexpage}" alt="">
+            </div>
+            <div class="product-buttons">
+            <a class="d-block" href="">
+                <i class="fa-solid fa-maximize"></i>   
+            </a>
+            <a class="d-block" href=""><i class="fa-brands fa-gratipay"></i></a>
+            </div>
+            <div class="p-info">
+                <a class="d-block prod-name" href="#" onclick="productPage(event)" >${prod.name}</a>
+                <span class="prod-weight">${weight}</span>
+                <span class="m-0 prod-stock">${prod.stock}</span>
+                <span class="prod-rating">${rating}</span>
+                <span class="text-decoration-line-through old-price">${oldPrice}</span>
+                <span class="new-price">${"$" + prod.price.newprice}</span>
+                ${btn}
+                </div>
+            </div>
+            `
+            return x;
 }
 main(6,"#elementorProduct");
 main(5,"#bestProducts");
 main(10,'#autoshipProducts');
 main(1,"#elementorProductDeals");
-var countDownDate = new Date("June 11, 2022 15:37:25").getTime();
+var countDownDate = new Date("June  , 2022 15:37:25").getTime();
 var x = setInterval(function () {
 
     var now = new Date().getTime();

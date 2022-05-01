@@ -24,26 +24,36 @@ else{
 }
 let x='';
 let total=0;
-basket.forEach(prod=>{
-    let subtotal=Math.round(prod.Count*prod.Price,2)
-    total+=subtotal;
-    let allsubtotal=total
-    x+=`
-        <div class="prod-select col-lg-12 row align-items-center" data-id="${prod.Id}">
-        <div class="col-lg-6 product-detail col-9 d-flex justify-content-between align-items-center"><img col-3 src="${prod.Src}" alt=""><p class="col-lg-9">${prod.Name}</p></div>
-        <div class="col-lg-1 price-category">${prod.Price}</div>
-        <div class="qty-input col-lg-2 col-3">
-        <button onclick="minus(event);" data-count=${prod.Count} class="minus col-lg-3 col-3"  type="button">-</button>
-        <input class="product-qty col-lg-4 col-3" type="number" name="product-qty" min="0" value="${prod.Count}" disabled>
-        <button onclick="plus(event);"data-count=${prod.Count};" class="plus col-lg-3 col-3" type="button">+</button>
-        </div>
-        <div class="col-lg-2 subtotal-category">${subtotal}</div>
-        <div class="col-lg-1"><i class="fa-solid fa-x removeProduct"></i></div>
-        </div>
-    `
-    document.getElementById('productsBasket').innerHTML = x;
-    document.getElementById('subtotal').innerHTML=allsubtotal;
+let allsubtotal=0;
+function shippingMethod(event){
+    shipValue= parseInt(event.target.getAttribute('data-value'));
+    basket.forEach(prod=>{
+    allsubtotal=total;
+    document.getElementById('total').innerText=allsubtotal+shipValue;
 })
+}  
+
+basket.forEach(prod=>{
+        let subtotal=Number(prod.Count*prod.Price).toFixed(2);
+        total+=parseFloat(Number(subtotal).toFixed(2));
+        allsubtotal=total+5;
+        x+=`
+            <div class="prod-select col-lg-12 row align-items-center" data-id="${prod.Id}">
+            <div class="col-lg-6 product-detail col-9 d-flex justify-content-between align-items-center"><img col-3 src="${prod.Src}" alt=""><p class="col-lg-9">${prod.Name}</p></div>
+            <div class="col-lg-1 price-category">${prod.Price}</div>
+            <div class="qty-input col-lg-2 col-3">
+            <button onclick="minus(event);" data-count=${prod.Count} class="minus col-lg-3 col-3"  type="button">-</button>
+            <input class="product-qty col-lg-4 col-3" type="number" name="product-qty" min="0" value="${prod.Count}" disabled>
+            <button onclick="plus(event);"data-count=${prod.Count};" class="plus col-lg-3 col-3" type="button">+</button>
+            </div>
+            <div class="col-lg-2 subtotal-category">${subtotal}</div>
+            <div class="col-lg-1"><i class="fa-solid fa-x removeProduct"></i></div>
+            </div>
+        `
+        document.getElementById('productsBasket').innerHTML = x;
+        document.getElementById('subtotal').innerHTML=total;
+        document.getElementById('total').innerText=allsubtotal
+}) 
 function minus(event){
     let value=event.target.nextElementSibling.value;
     if(value==1){
@@ -95,7 +105,7 @@ $(".removeProduct").click(function(e){
     localStorage.setItem('basket',JSON.stringify(basket));
     location.reload();
 })  
-CountBasket();
 $('.refresh').click(function(){
     location.reload();
 })
+CountBasket();
