@@ -2260,7 +2260,10 @@ footer .middle h4 {
        object-fit: cover;
   }
   #slider img {
-    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100% !important;
+    height: 300px !important;
   }
   #slider .left_arrow, #slider .right_arrow {
     display: none !important;
@@ -2278,6 +2281,10 @@ footer .middle h4 {
   footer .top .second,
   footer .top .third {
     border: none;
+  }
+  #footer .social-buttons {
+    margin-top: 20px;
+    text-align: left !important;
   }
   #footer .app-content {
     text-align: left !important;

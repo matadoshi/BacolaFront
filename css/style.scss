@@ -1268,7 +1268,9 @@ footer{
             object-fit: cover;
         }
         img{
-            width: 100%;
+            object-fit: cover;
+            width: 100% !important;
+            height: 300px !important;
         }
         .left_arrow,.right_arrow{
             display: none !important;
@@ -1291,6 +1293,10 @@ footer{
         }
     }
     #footer{
+        .social-buttons{
+            margin-top: 20px;
+            text-align: left !important;
+        }
         .app-content{
             text-align: left !important;
         }
